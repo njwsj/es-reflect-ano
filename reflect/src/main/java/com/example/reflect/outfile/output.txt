@@ -1,0 +1,26 @@
+======Teacher======
+name=zhangsan
+salary=18.0
+保存时间: Tue Dec 02 14:50:28 CST 2025
+======Teacher======
+======Student======
+address=null
+country=中国
+name=lisi
+age=18
+sex=男
+保存时间: Tue Dec 02 14:50:28 CST 2025
+======Student======
+======Teacher======start
+name=zhangsan
+salary=18.0
+保存时间: Tue Dec 02 14:51:24 CST 2025
+======Teacher======end
+======Student======start
+address=null
+country=中国
+name=lisi
+age=18
+sex=男
+保存时间: Tue Dec 02 14:51:24 CST 2025
+======Student======end
