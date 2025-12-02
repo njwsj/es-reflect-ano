@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 public class StudentReflectionTest {
     @Test
@@ -74,5 +75,32 @@ public class StudentReflectionTest {
 
         //取值
         System.out.println(nameField.get(student1));
+    }
+
+    @Test
+    public void testGetMethod() throws Exception {
+        Class studentClass = Student.class;
+        System.out.println(studentClass.getMethods().length);
+        //获取全部成员方法
+        for (Method method : studentClass.getMethods()) {
+            System.out.println(method.getName()+"----"+method.getReturnType());
+        }
+        System.out.println("==================================");
+        System.out.println(studentClass.getDeclaredMethods().length);
+        for (Method method : studentClass.getDeclaredMethods()) {
+            System.out.println(method.getName()+"----"+method.getReturnType());
+        }
+        //获取某个成员方法
+        Method m = studentClass.getMethod("getName");//获取到getName方法  方法参数为空 就不用写
+        System.out.println(m.getName()+"----"+m.getReturnType()+"----"+m.getParameterCount());
+        Method add = studentClass.getMethod("add", Integer.class, Integer.class);
+        System.out.println(add.getName()+"----"+add.getReturnType()+"----"+add.getParameterCount());
+
+        //触发方法
+        Student student = new Student("zhang",18,"nan");
+        Object invokeReturn = m.invoke(student);
+        System.out.println(invokeReturn);
+        Object addReturn = add.invoke(student, 1, 2);
+        System.out.println(addReturn);
     }
 }

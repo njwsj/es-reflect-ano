@@ -28,4 +28,8 @@ public class Student {
         this.age = age;
         this.sex = sex;
     }
+
+    public Integer add(Integer a,Integer b){
+        return a+b;
+    }
 }
